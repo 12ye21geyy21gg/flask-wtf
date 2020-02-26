@@ -1,10 +1,9 @@
 from http.server import HTTPServer, CGIHTTPRequestHandler
 from flask import Flask, render_template
-name = input('enter name:')
 app = Flask(__name__)
-@app.route('/')
-@app.route('/index')
-def index():
+@app.route('/<name>')
+@app.route('/index/<name>')
+def index(name):
     param = {}
     param['title'] = name
     return render_template('base.html', **param)
