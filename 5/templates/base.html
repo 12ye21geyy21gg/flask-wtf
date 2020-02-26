@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Colonization</title>
+</head>
+<body>
+    <h1 style="color: #ffbb00">Миссия Колонизация Марса</h1>
+    <h4 style="color: #aaaaaa">И на Марсе будут яблони цвести!</h4>
+    <div>
+    <img src={{ url }} alt="none"> <h1>Доступ аварийный</h1>
+    </div>
+    {% block content %}
+    <div>
+        {{ form.csrf_token }}
+    </div>
+    {% for field in form if field.name != 'csrf_token' %}
+    <div>
+        {{ field.label() }}
+        {{ field() }}
+        {% for error in field.errors %}
+        <div class="error">{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+    {% endblock %}
+</body>
+</html>
