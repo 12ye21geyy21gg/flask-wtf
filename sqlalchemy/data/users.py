@@ -1,11 +1,12 @@
 import datetime
 import sqlalchemy
+from .db_session import SqlAlchemyBase
 
 
 # from .db_session import SqlAlchemyBase
 
 
-class User():
+class User(SqlAlchemyBase):
     __tablename__ = 'users'
 
     id = sqlalchemy.Column(sqlalchemy.Integer,
