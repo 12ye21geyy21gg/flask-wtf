@@ -4,11 +4,11 @@ from flask import Flask, render_template,url_for
 app = Flask(__name__)
 
 
-@app.route('/training/<int:prof>')
+@app.route('/training/<prof>')
 def training(prof):
     param = {}
     param['number'] = prof
-    if prof % 2 == 0:
+    if prof != 'врач':
         param['url'] = url_for('static',filename='pen.jpg')
     else:
         param['url'] = url_for('static',filename='kolba.jpg')
